@@ -50,6 +50,8 @@ export type ProjectFieldOption = {
   updated_at: string;
 };
 
+export type ProjectFieldWithOptions = ProjectField & { options: ProjectFieldOption[] };
+
 export type Section = {
   id: string;
   name: string;

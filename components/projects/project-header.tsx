@@ -5,13 +5,14 @@ import { HiCog6Tooth } from 'react-icons/hi2'
 import { Button } from '@/components/ui/button'
 import { Drawer } from '@/components/ui/drawer'
 import { ProjectSettings } from './project-settings'
-import type { Project } from '@/lib/types'
+import type { Project, ProjectFieldWithOptions } from '@/lib/types'
 
 type ProjectHeaderProps = {
   project: Project
+  fields?: ProjectFieldWithOptions[]
 }
 
-export function ProjectHeader({ project }: ProjectHeaderProps) {
+export function ProjectHeader({ project, fields = [] }: ProjectHeaderProps) {
   const [settingsOpen, setSettingsOpen] = useState(false)
 
   return (
@@ -30,7 +31,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
         </Button>
       </header>
       <Drawer open={settingsOpen} onOpenChange={setSettingsOpen} title="Project settings">
-        <ProjectSettings project={project} />
+        <ProjectSettings project={project} fields={fields} />
       </Drawer>
     </>
   )

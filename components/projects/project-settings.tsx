@@ -15,13 +15,15 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { updateProject, deleteProjectForm } from '@/actions/projects'
-import type { Project } from '@/lib/types'
+import { ProjectFieldsSection } from './project-fields-section'
+import type { Project, ProjectFieldWithOptions } from '@/lib/types'
 
 type ProjectSettingsProps = {
   project: Project
+  fields?: ProjectFieldWithOptions[]
 }
 
-export function ProjectSettings({ project }: ProjectSettingsProps) {
+export function ProjectSettings({ project, fields = [] }: ProjectSettingsProps) {
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false)
   const [state, formAction, isPending] = useActionState(
     (prev: { error?: string }, formData: FormData) => updateProject(project.id, prev, formData),
@@ -73,6 +75,8 @@ export function ProjectSettings({ project }: ProjectSettingsProps) {
           {isPending ? 'Saving…' : 'Save changes'}
         </Button>
       </form>
+
+      <ProjectFieldsSection projectId={project.id} fields={fields} />
 
       <div className="mt-auto border-t border-border pt-4">
         <Button
