@@ -38,7 +38,7 @@ export async function signIn(
     return { error: error.message }
   }
 
-  redirect('/dashboard')
+  redirect('/')
 }
 
 export async function signUp(
@@ -99,7 +99,7 @@ export async function createOrganization(
     return { error: error.message }
   }
 
-  redirect('/dashboard')
+  redirect('/')
 }
 
 export async function joinOrganization(
@@ -126,7 +126,7 @@ export async function joinOrganization(
     return { error: error.message }
   }
 
-  redirect('/dashboard')
+  redirect('/')
 }
 
 export async function signOut(): Promise<void> {

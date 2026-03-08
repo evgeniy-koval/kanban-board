@@ -69,17 +69,17 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // Authenticated user with org visiting /onboarding → redirect to /dashboard
+  // Authenticated user with org visiting /onboarding → redirect to /
   if (hasOrg && isOnboarding) {
     const url = request.nextUrl.clone();
-    url.pathname = "/dashboard";
+    url.pathname = "/";
     return NextResponse.redirect(url);
   }
 
-  // Authenticated user visiting /login or /signup → redirect to /dashboard
+  // Authenticated user visiting /login or /signup → redirect to /
   if (isPublic) {
     const url = request.nextUrl.clone();
-    url.pathname = "/dashboard";
+    url.pathname = "/";
     return NextResponse.redirect(url);
   }
 
