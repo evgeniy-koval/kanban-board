@@ -49,3 +49,59 @@ export type ProjectFieldOption = {
   created_at: string;
   updated_at: string;
 };
+
+export type Section = {
+  id: string;
+  name: string;
+  position: number;
+  project_id: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type Task = {
+  id: string;
+  title: string;
+  description: string | null;
+  due_date: string | null;
+  parent_task_id: string | null;
+  assignee_id: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type TaskDependency = {
+  id: string;
+  dependent_id: string;
+  blocking_id: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type TaskFieldValue = {
+  id: string;
+  task_id: string;
+  project_field_id: string;
+  project_field_option_id: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type TaskComment = {
+  id: string;
+  task_id: string;
+  content: string;
+  author_id: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type TaskProject = {
+  id: string;
+  task_id: string;
+  project_id: string;
+  section_id: string;
+  position: number;
+  created_at: string;
+  updated_at: string;
+};

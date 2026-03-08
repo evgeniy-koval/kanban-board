@@ -38,7 +38,6 @@ export function AccountMenu({ signOutAction, user }: AccountMenuProps) {
           </button>
         </DropdownMenuItem>
       </DropdownMenuContent>
-      
     </DropdownMenu>
   );
 }

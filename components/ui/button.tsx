@@ -44,8 +44,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center rounded-md font-medium transition-colors cursor-pointer",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          "inline-flex items-center justify-center rounded-md font-medium transition-colors cursor-pointer outline-none",
           "disabled:pointer-events-none disabled:opacity-50",
           variantClasses[variant],
           variant !== "link" && variant !== "icon" && sizeClasses[size],
