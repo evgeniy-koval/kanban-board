@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { HiPlus } from 'react-icons/hi'
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { CreateProjectForm } from '@/components/projects/create-project-form'
 import type { Project } from '@/lib/types'
 import { cn } from '@/lib/utils'
 
@@ -17,14 +19,21 @@ export function ProjectsSidebar({ projects }: ProjectsSidebarProps) {
         <h2 className="truncate text-sm font-semibold text-foreground">
           Projects
         </h2>
-        <Button
-          type="button"
-          variant="icon"
-          className="size-8 shrink-0 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
-          aria-label="Create project"
-        >
-          <HiPlus className="size-5" />
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button
+              type="button"
+              variant="icon"
+              className="size-8 shrink-0 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+              aria-label="Create project"
+            >
+              <HiPlus className="size-5" />
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-md">
+            <CreateProjectForm />
+          </DialogContent>
+        </Dialog>
       </div>
       <nav className="flex flex-1 flex-col gap-0.5 overflow-y-auto p-2">
         {projects.length === 0 ? (

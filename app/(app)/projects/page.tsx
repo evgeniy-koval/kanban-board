@@ -1,4 +1,8 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { CreateProjectForm } from '@/components/projects/create-project-form'
 
 export default function ProjectsPage() {
   return (
@@ -11,7 +15,14 @@ export default function ProjectsPage() {
           Choose a project from the sidebar or create a new one to get started.
         </p>
       </div>
-      <Button type="button">Create new project</Button>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button type="button">Create new project</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-md">
+          <CreateProjectForm />
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
