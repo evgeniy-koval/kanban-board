@@ -46,8 +46,8 @@ export async function AppHeader() {
   } = await supabase.auth.getUser();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-card">
-      <div className="flex h-14 items-center justify-between px-6">
+    <header className="h-14 sticky top-0 z-40 border-b border-border bg-card">
+      <div className="flex h-full items-center justify-between px-6">
         <Link
           href="/"
           className="font-semibold text-foreground transition-colors hover:text-foreground/90"
